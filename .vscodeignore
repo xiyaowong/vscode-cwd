@@ -1,0 +1,10 @@
+src
+node_modules
+test
+.github
+.vscode
+.gitignore
+eslint.config*
+pnpm-lock.yaml
+tsconfig.json
+tsup.config.ts

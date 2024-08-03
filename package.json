@@ -1,0 +1,85 @@
+{
+  "publisher": "wongxy",
+  "name": "cwd",
+  "displayName": "Current Working Directory",
+  "version": "0.0.1",
+  "private": true,
+  "extensionKind": [
+    "ui"
+  ],
+  "packageManager": "pnpm@9.3.0",
+  "description": "Identify your current working folder in status bar",
+  "author": "wongxy <xiyao.wong@foxmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/xiyaowong/vscode-cwd",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xiyaowong/vscode-cwd"
+  },
+  "bugs": {
+    "url": "https://github.com/xiyaowong/vscode-cwd/issues"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/index.js",
+  "icon": "res/icon.png",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Project Name In StatusBar extension configuration",
+      "properties": {
+        "vscode-cwd.icon": {
+          "type": "string",
+          "default": "folder-opened",
+          "description": "Codicon id"
+        },
+        "vscode-cwd.template": {
+          "type": "string",
+          "default": "{icon} {name}",
+          "description": "Defines template of project name placeholder"
+        },
+        "vscode-cwd.transform": {
+          "type": "string",
+          "enum": [
+            "none",
+            "uppercase",
+            "lowercase",
+            "capitalize"
+          ],
+          "default": "capitalize",
+          "description": "Defines project name text style inside template"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --external vscode",
+    "dev": "pnpm run build --watch",
+    "lint": "eslint . --fix",
+    "vscode:prepublish": "pnpm run build",
+    "publish": "vsce publish --no-dependencies",
+    "pack": "vsce package --no-dependencies",
+    "typecheck": "tsc --noEmit",
+    "release": "bumpp && nr publish"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.2",
+    "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^2.31.1",
+    "@wongxy/eslint-config": "^0.0.27",
+    "bumpp": "^9.4.2",
+    "eslint": "^9.8.0",
+    "esno": "^4.7.0",
+    "pnpm": "^9.6.0",
+    "rimraf": "^5.0.10",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4"
+  }
+}
