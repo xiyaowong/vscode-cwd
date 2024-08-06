@@ -35,26 +35,10 @@
       "type": "object",
       "title": "Project Name In StatusBar extension configuration",
       "properties": {
-        "vscode-cwd.icon": {
-          "type": "string",
-          "default": "folder-opened",
-          "description": "Codicon id"
-        },
         "vscode-cwd.template": {
           "type": "string",
-          "default": "{icon} {name}",
-          "description": "Defines template of project name placeholder"
-        },
-        "vscode-cwd.transform": {
-          "type": "string",
-          "enum": [
-            "none",
-            "uppercase",
-            "lowercase",
-            "capitalize"
-          ],
-          "default": "capitalize",
-          "description": "Defines project name text style inside template"
+          "default": "$(folder-opened) {name:capitalize}",
+          "markdownDescription": "Defines template of project name placeholder\n\n- `{name}` - project name\n- `{name:uppercase}` - project name in uppercase\n- `{name:lowercase}` - project name in lowercase\n- `{name:capitalize}` - project name in capitalize"
         }
       }
     }
